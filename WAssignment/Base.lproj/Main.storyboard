@@ -81,7 +81,7 @@
         <!--Detail View Controller-->
         <scene sceneID="vnW-CT-VYJ">
             <objects>
-                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" customModule="WAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Afr-Oy-jZL"/>
                         <viewControllerLayoutGuide type="bottom" id="SVe-3P-Mvu"/>
@@ -107,7 +107,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="label" destination="53n-ha-PBZ" id="HIB-ZO-Rbf"/>
+                        <outlet property="label" destination="53n-ha-PBZ" id="QOV-tr-paQ"/>
+                        <outlet property="respositoryName" destination="53n-ha-PBZ" id="AyE-Le-jZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h30-bZ-sZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
