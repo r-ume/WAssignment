@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hBo-ax-iz5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hBo-ax-iz5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,16 +28,17 @@
         <!--一覧-->
         <scene sceneID="6UF-O0-xlR">
             <objects>
-                <viewController id="jSt-sB-YQA" customClass="ViewController" customModule="IncrementalSearchExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jSt-sB-YQA" customClass="ViewController" customModule="WAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Seb-cC-6mx"/>
                         <viewControllerLayoutGuide type="bottom" id="yLV-vi-NgA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="U6j-jq-hoQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="レシピ名で検索" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-OV-Ety">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ePX-6U-J57"/>
                                 </constraints>
@@ -43,6 +48,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wqg-eP-vWM">
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="jSt-sB-YQA" id="nrz-QU-8u5"/>
@@ -63,8 +69,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="一覧" id="dJh-CF-CTS"/>
                     <connections>
-                        <outlet property="searchBar" destination="BNR-OV-Ety" id="9gl-g3-QwW"/>
-                        <outlet property="tableView" destination="wqg-eP-vWM" id="oHk-jm-3UQ"/>
+                        <outlet property="searchBar" destination="BNR-OV-Ety" id="TSI-Dv-aOm"/>
+                        <outlet property="tableView" destination="wqg-eP-vWM" id="tsm-Vw-uta"/>
                         <segue destination="oSa-Ju-8FF" kind="show" identifier="PushDetail" id="yXL-DA-3Dl"/>
                     </connections>
                 </viewController>
@@ -75,16 +81,17 @@
         <!--Detail View Controller-->
         <scene sceneID="vnW-CT-VYJ">
             <objects>
-                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" customModule="IncrementalSearchExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" customModule="WAssignment" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Afr-Oy-jZL"/>
                         <viewControllerLayoutGuide type="bottom" id="SVe-3P-Mvu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Hgs-3x-DRW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <view key="view" contentMode="scaleToFill" id="Hgs-3x-DRW">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53n-ha-PBZ">
+                                <rect key="frame" x="166.5" y="30" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Qxe-u9-ggC"/>
                                 </constraints>
