@@ -15,6 +15,7 @@
 		777E08821E6BCD8500108975 /* WAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E08811E6BCD8500108975 /* WAssignmentTests.swift */; };
 		777E088D1E6BCD8500108975 /* WAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E088C1E6BCD8500108975 /* WAssignmentUITests.swift */; };
 		777E089B1E6BD61200108975 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E089A1E6BD61200108975 /* DetailViewController.swift */; };
+		777E08A11E6BF95D00108975 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777E08A01E6BF95D00108975 /* GithubService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		777E088C1E6BCD8500108975 /* WAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAssignmentUITests.swift; sourceTree = "<group>"; };
 		777E088E1E6BCD8500108975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		777E089A1E6BD61200108975 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		777E08A01E6BF95D00108975 /* GithubService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		777E086B1E6BCD8500108975 /* WAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				777E089F1E6BF93F00108975 /* Model */,
 				777E086C1E6BCD8500108975 /* AppDelegate.swift */,
 				777E086E1E6BCD8500108975 /* ViewController.swift */,
 				777E089A1E6BD61200108975 /* DetailViewController.swift */,
@@ -126,6 +129,14 @@
 				777E088E1E6BCD8500108975 /* Info.plist */,
 			);
 			path = WAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		777E089F1E6BF93F00108975 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				777E08A01E6BF95D00108975 /* GithubService.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				777E089B1E6BD61200108975 /* DetailViewController.swift in Sources */,
+				777E08A11E6BF95D00108975 /* GithubService.swift in Sources */,
 				777E086F1E6BCD8500108975 /* ViewController.swift in Sources */,
 				777E086D1E6BCD8500108975 /* AppDelegate.swift in Sources */,
 			);

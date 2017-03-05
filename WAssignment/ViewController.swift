@@ -13,9 +13,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var allRepository = [
-        "swift","laravel","codeigniter","rails","objective-c",
-    ]
+    final let urlString = "https://api.github.com/search/repositories"
+    
+    var allRepository = [String]()
     
     var searchResultRepository = [String]()
     
@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view, typically from a nib.
         
         searchResultRepository = allRepository
+        let requestUrl = createRequestUrl()
+        downloadJsonWithURL(requestUrl: requestUrl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +58,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        let requestUrl = createRequestUrl()
+        downloadJsonWithURL(requestUrl: requestUrl)
         reloadSearchRepositoryResult()
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
+        let requestUrl = createRequestUrl()
+        downloadJsonWithURL(requestUrl: requestUrl)
         reloadSearchRepositoryResult()
         return true
     }
@@ -79,7 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //searchBarが空なら全て表示する
             searchResultRepository = allRepository
         }else{
-            //searchBarに文字があればそれを含むレシピのみ表示する
+            //searchBarに文字があればそれを含むレポジトリのみ表示する
             searchResultRepository.removeAll()
             for repository in allRepository{
                 if repository.lowercased().contains(searchBarTextWithNoSpace().lowercased()){
@@ -95,6 +101,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBarTextWithNoSpace() -> String {
         return searchBar.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-
     
+    func downloadJsonWithURL(requestUrl: String) {
+        let url = NSURL(string: requestUrl)
+        print("start")
+        
+        URLSession.shared.dataTask(with: (url as? URL)!, completionHandler: {(data, response, error) -> Void in
+            if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
+                if let repositoryArray = jsonObj!.value(forKey: "items") as? NSArray {
+                    for repository in repositoryArray{
+                        if let repositoryDict = repository as? NSDictionary {
+                            if let name = repositoryDict.value(forKey: "name") {
+                                self.allRepository.append(name as! String)
+                            }
+                        }
+                    }
+                }
+                
+                OperationQueue.main.addOperation({
+                    self.tableView.reloadData()
+                })
+            }
+        }).resume()
+    }
+    
+    func createRequestUrl() -> String {
+        let searchBarText = searchBar.text!
+        let requestUrl = urlString + "?q=" + searchBarText
+        return requestUrl
+    }
 }
