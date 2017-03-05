@@ -32,8 +32,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -58,12 +56,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        print("1")
+        print(searchBarTextWithNoSpace())
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
-        print("2")
-
         return true
     }
 
@@ -76,4 +72,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+    
+    // searchBarのテキストの前後の空白をトリムして返す
+    func searchBarTextWithNoSpace() -> String {
+        return searchBar.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+
+    
 }
