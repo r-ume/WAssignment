@@ -11,12 +11,12 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var label: UILabel!
-    var respositoryName = ""
+    var repositoryName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        label.text = respositoryName
+        label.text = repositoryName
     }
     
     override func didReceiveMemoryWarning() {

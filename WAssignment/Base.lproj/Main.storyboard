@@ -28,7 +28,7 @@
         <!--一覧-->
         <scene sceneID="6UF-O0-xlR">
             <objects>
-                <viewController id="jSt-sB-YQA" customClass="ViewController" customModule="WAssignment" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jSt-sB-YQA" customClass="ViewController" customModule="WAssignment" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Seb-cC-6mx"/>
                         <viewControllerLayoutGuide type="bottom" id="yLV-vi-NgA"/>
@@ -71,7 +71,7 @@
                     <connections>
                         <outlet property="searchBar" destination="BNR-OV-Ety" id="TSI-Dv-aOm"/>
                         <outlet property="tableView" destination="wqg-eP-vWM" id="tsm-Vw-uta"/>
-                        <segue destination="oSa-Ju-8FF" kind="show" identifier="PushDetail" id="yXL-DA-3Dl"/>
+                        <segue destination="oSa-Ju-8FF" kind="show" identifier="DetailDestination" id="yXL-DA-3Dl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-Y8-2sm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,7 +81,7 @@
         <!--Detail View Controller-->
         <scene sceneID="vnW-CT-VYJ">
             <objects>
-                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" customModule="WAssignment" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Afr-Oy-jZL"/>
                         <viewControllerLayoutGuide type="bottom" id="SVe-3P-Mvu"/>
@@ -108,7 +108,6 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="53n-ha-PBZ" id="QOV-tr-paQ"/>
-                        <outlet property="respositoryName" destination="53n-ha-PBZ" id="AyE-Le-jZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h30-bZ-sZM" userLabel="First Responder" sceneMemberID="firstResponder"/>

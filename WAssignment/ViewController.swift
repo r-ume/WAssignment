@@ -38,6 +38,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        performSegue(withIdentifier: "DetailDestination", sender: indexPath)
     }
 
     
@@ -52,6 +54,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailDestination" {
+            let detailViewController = segue.destination as! DetailViewController
+            if let indexPath = sender as? NSIndexPath{
+                detailViewController.repositoryName = searchResultRepository[indexPath.row]
+            }
+        }
+    }
 
     
 }
