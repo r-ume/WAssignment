@@ -1,30 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hBo-ax-iz5">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="SY1-Wv-bcP">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WAssignment" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="hBo-ax-iz5" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3Mn-Iy-8C2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jSt-sB-YQA" kind="relationship" relationship="rootViewController" id="xww-gM-KyI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rff-sc-AEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="64" y="1039"/>
+        </scene>
+        <!--一覧-->
+        <scene sceneID="6UF-O0-xlR">
+            <objects>
+                <viewController id="jSt-sB-YQA" customClass="ViewController" customModule="IncrementalSearchExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Seb-cC-6mx"/>
+                        <viewControllerLayoutGuide type="bottom" id="yLV-vi-NgA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U6j-jq-hoQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="レシピ名で検索" translatesAutoresizingMaskIntoConstraints="NO" id="BNR-OV-Ety">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ePX-6U-J57"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jSt-sB-YQA" id="TRv-Fg-76y"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wqg-eP-vWM">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jSt-sB-YQA" id="nrz-QU-8u5"/>
+                                    <outlet property="delegate" destination="jSt-sB-YQA" id="j9K-V8-yhX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BNR-OV-Ety" firstAttribute="leading" secondItem="U6j-jq-hoQ" secondAttribute="leading" id="ABk-J3-phf"/>
+                            <constraint firstAttribute="trailing" secondItem="BNR-OV-Ety" secondAttribute="trailing" id="Bp3-WW-85c"/>
+                            <constraint firstItem="BNR-OV-Ety" firstAttribute="top" secondItem="U6j-jq-hoQ" secondAttribute="top" id="MVV-FW-6mC"/>
+                            <constraint firstItem="wqg-eP-vWM" firstAttribute="leading" secondItem="U6j-jq-hoQ" secondAttribute="leading" id="QTg-b7-9Gu"/>
+                            <constraint firstAttribute="bottom" secondItem="wqg-eP-vWM" secondAttribute="bottom" id="fc5-Wk-5N5"/>
+                            <constraint firstItem="wqg-eP-vWM" firstAttribute="top" secondItem="BNR-OV-Ety" secondAttribute="bottom" id="mIj-mQ-n6q"/>
+                            <constraint firstAttribute="trailing" secondItem="wqg-eP-vWM" secondAttribute="trailing" id="y7K-S6-LGt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="一覧" id="dJh-CF-CTS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="BNR-OV-Ety" id="9gl-g3-QwW"/>
+                        <outlet property="tableView" destination="wqg-eP-vWM" id="oHk-jm-3UQ"/>
+                        <segue destination="oSa-Ju-8FF" kind="show" identifier="PushDetail" id="yXL-DA-3Dl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcY-Y8-2sm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="1039"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vnW-CT-VYJ">
+            <objects>
+                <viewController id="oSa-Ju-8FF" customClass="DetailViewController" customModule="IncrementalSearchExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Afr-Oy-jZL"/>
+                        <viewControllerLayoutGuide type="bottom" id="SVe-3P-Mvu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Hgs-3x-DRW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53n-ha-PBZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Qxe-u9-ggC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="53n-ha-PBZ" firstAttribute="top" secondItem="Afr-Oy-jZL" secondAttribute="bottom" constant="30" id="BDj-Rk-sJ0"/>
+                            <constraint firstItem="53n-ha-PBZ" firstAttribute="centerX" secondItem="Hgs-3x-DRW" secondAttribute="centerX" id="eDA-nh-DME"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="53n-ha-PBZ" id="HIB-ZO-Rbf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h30-bZ-sZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="1046"/>
         </scene>
     </scenes>
 </document>
