@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -53,6 +55,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = searchResultRepository[indexPath.row]
         return cell
     }
+    
+    // MARK: - UISearchBarDelegate
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        print("1")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
+        print("2")
+
+        return true
+    }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +76,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
-
-    
 }
-
