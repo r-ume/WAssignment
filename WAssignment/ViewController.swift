@@ -56,10 +56,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UISearchBarDelegate
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        print(searchBarTextWithNoSpace())
+        reloadSearchRepositoryResult()
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
+        reloadSearchRepositoryResult()
         return true
     }
 
@@ -72,6 +73,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
     }
+
+    func reloadSearchRepositoryResult(){
+        if searchBarTextWithNoSpace() == "" {
+            //searchBarが空なら全て表示する
+            searchResultRepository = allRepository
+        }else{
+            //searchBarに文字があればそれを含むレシピのみ表示する
+            searchResultRepository.removeAll()
+            for repository in allRepository{
+                if repository.lowercased().contains(searchBarTextWithNoSpace().lowercased()){
+                    searchResultRepository.append(repository)
+                }
+            }
+        }
+        tableView.reloadData()
+    }
+
     
     // searchBarのテキストの前後の空白をトリムして返す
     func searchBarTextWithNoSpace() -> String {
